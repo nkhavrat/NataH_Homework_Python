@@ -15,7 +15,8 @@ class CalculatorPage:
 
     def open(self):
         self.driver.get(
-            "https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html"
+            "https://bonigarcia.dev/"
+            "selenium-webdriver-java/slow-calculator.html"
             )
 
     def set_delay(self):
@@ -26,12 +27,13 @@ class CalculatorPage:
         delay_input.send_keys("45")
 
     def enter_expression(self):
-            buttons = ["7", "+", "8", "="]
-            for button in buttons:
-                xpath = f"//span[text()='{button}']"
-                self.driver.find_element(By.XPATH, xpath).click()
+        buttons = ["7", "+", "8", "="]
+        for button in buttons:
+            xpath = f"//span[text()='{button}']"
+            self.driver.find_element(By.XPATH, xpath).click()
 
     def get_result(self):
-        self.wait.until(EC.text_to_be_present_in_element(self.RESULT_VALUE, "15"))
+        self.wait.until(EC.text_to_be_present_in_element(
+            self.RESULT_VALUE, "15"))
         result_element = self.driver.find_element(*self.RESULT_VALUE)
         return result_element.text

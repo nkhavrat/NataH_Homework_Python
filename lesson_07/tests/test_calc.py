@@ -10,11 +10,13 @@ def driver():
     yield driver
     driver.quit()
 
+
 def test_calculator(driver):
-        url = "https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html"
-        calc_page = CalculatorPage(driver, url)
-        calc_page.open()
-        calc_page.set_delay()
-        calc_page.enter_expression()
-        calc_page.get_result()
-        assert calc_page.get_result() == "15"
+    url = ("https://bonigarcia.dev/selenium-webdriver-java/"
+           "slow-calculator.html")
+    calc_page = CalculatorPage(driver, url)
+    calc_page.open()
+    calc_page.set_delay()
+    calc_page.enter_expression()
+    calc_page.get_result()
+    assert calc_page.get_result() == "15"

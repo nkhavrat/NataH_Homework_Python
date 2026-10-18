@@ -3,12 +3,14 @@ from selenium import webdriver
 from lesson_07.pages.shop_page import MainShopPage
 from lesson_07.pages.shop_page import CartPage
 
+
 @pytest.fixture
 def driver():
     driver = webdriver.Firefox()
     driver.maximize_window()
     yield driver
     driver.quit()
+
 
 def test_shop(driver):
     shop_page = MainShopPage(driver, "https://www.saucedemo.com/")

@@ -3,11 +3,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-def __init__(self, driver, url):
-    self.driver = driver
-    self.url = url
-    self.wait = WebDriverWait(self.driver, 10)
-
 class MainShopPage:
 
     LOGIN_INPUT = (By.CSS_SELECTOR, "#user-name")
@@ -26,6 +21,7 @@ class MainShopPage:
         self.url = url
         self.wait = WebDriverWait(self.driver, 10)
         self.driver.get(self.url)
+
     def open(self):
         self.driver.get("https://www.saucedemo.com/")
 
@@ -55,10 +51,12 @@ class MainShopPage:
         self.wait.until(EC.presence_of_element_located(
             self.ADD_to_cart_sauce_labs_onesie_BUTTON
         )).click()
+
     def get_shopping_cart(self):
         self.wait.until(EC.element_to_be_clickable(
             self.SHOPPING_CART_BUTTON
         )).click()
+
 
 class CartPage:
     CHECKOUT_BUTTON = (By.ID, "checkout")
